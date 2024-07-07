@@ -1,0 +1,57 @@
+<div class="container">
+      <div class="relationship">
+        <div class="entity">
+          <h3>Hotel</h3>
+          <div class="attribute">Hotel_Id (PK)</div>
+          <div class="attribute">Hotel_Name</div>
+        </div>
+        <div class="relationship">
+          <div class="line"></div>
+          1:N
+        </div>
+        <div class="entity">
+          <h3>Room</h3>
+          <div class="attribute">Room_Id (PK)</div>
+          <div class="attribute">Floor</div>
+          <div class="attribute">Hotel_Id (FK)</div>
+          <div class="attribute">Type_Id (FK)</div>
+        </div>
+      </div>
+
+      <div class="entity">
+        <h3>Type</h3>
+        <div class="attribute">Type_Id (PK)</div>
+        <div class="attribute">Type_Name</div>
+      </div>
+      <div class="relationship">
+        <div class="line"></div>
+        1:N
+      </div>
+      <div class="entity">
+        <h3>Category</h3>
+        <div class="attribute">Category_Id (PK)</div>
+        <div class="attribute">Category_Name</div>
+        <div class="attribute">Price</div>
+        <div class="attribute">Beds_numbers</div>
+      </div>
+      <div class="relationship">
+        <div class="line"></div>
+        1:N
+      </div>
+      <div class="entity">
+        <h3>Employee</h3>
+        <div class="attribute">Employee_Id (PK)</div>
+        <div class="attribute">Employee_Name</div>
+        <div class="attribute">Employee_Speciality</div>
+        <div class="attribute">Hotel_Id (FK)</div>
+      </div>
+      <div class="relationship">
+        <div class="line"></div>
+        N:M
+      </div>
+      <div class="entity">
+        <h3>Leads</h3>
+        <div class="attribute">Employee_Id (PK, FK)</div>
+        <div class="attribute">Room_Id (PK, FK)</div>
+      </div>
+    </div>
