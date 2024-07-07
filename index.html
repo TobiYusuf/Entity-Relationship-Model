@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ER Diagram</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Entity Relationship Model for Gymnasium</h1>
+      <div class="description">
+        <p class="description-title">Description of Relationships</p>
+
+        <div class="description-content">
+          <strong>Gymnasium - Member</strong>
+          <p>
+            A gymnasium can have many members, but each member is associated
+            with only one gymnasium.
+          </p>
+          <p>
+            <strong>Relationship:</strong> One-to-Many (Gymnasium to Member).
+          </p>
+        </div>
+
+        <div class="description-content">
+          <strong>Session - Member</strong>
+          <p>
+            A session can accommodate many members, and a member can register
+            for multiple sessions.
+          </p>
+          <p>
+            <strong>Relationship:</strong> Many-to-Many (Session to Member).
+          </p>
+          <p>
+            <strong>Join Table:</strong> SessionRegistration with foreign keys
+            SessionID and MemberID.
+          </p>
+        </div>
+
+        <div class="description-content">
+          <strong>Session - Coach</strong>
+          <p>
+            A session can have up to two coaches, and a coach can lead multiple
+            sessions.
+          </p>
+          <p><strong>Relationship:</strong> Many-to-Many (Session to Coach).</p>
+          <p>
+            <strong>Join Table:</strong> SessionCoach with foreign keys
+            SessionID and CoachID.
+          </p>
+        </div>
+      </div>
+      <div class="relationship">
+        <div class="entity">
+          <div class="entity-title">Gymnasium</div>
+          <div>GymnasiumID (PK)</div>
+          <div>Name</div>
+          <div>Address</div>
+          <div>PhoneNumber</div>
+        </div>
+
+        <div class="relationship">
+          <!-- <div class="line"></div> -->
+          <div class="arrow"></div>
+          <div>1</div>
+        </div>
+        <div class="relationship">
+          <div class="line"></div>
+          <div class="arrow"></div>
+          <div>*</div>
+        </div>
+
+        <div class="entity">
+          <div class="entity-title">Member</div>
+          <div>MemberID (PK)</div>
+          <div>LastName</div>
+          <div>FirstName</div>
+          <div>Address</div>
+          <div>DateOfBirth</div>
+          <div>Gender</div>
+          <div>GymnasiumID (FK)</div>
+        </div>
+      </div>
+
+      <div class="relationship">
+        <div class="entity">
+          <div class="entity-title">Session</div>
+          <div>SessionID (PK)</div>
+          <div>SportType</div>
+          <div>Schedule</div>
+          <div>MaxMembers (20)</div>
+        </div>
+        <div class="relationship">
+          <div class="arrow"></div>
+          <div>*</div>
+        </div>
+        <div class="relationship">
+          <div class="line"></div>
+          <div class="arrow"></div>
+          <div>*</div>
+        </div>
+
+        <div class="entity">
+          <div class="entity-title">SessionRegistration</div>
+          <div>SessionID (FK)</div>
+          <div>MemberID (FK)</div>
+        </div>
+      </div>
+
+      <div class="relationship">
+        <div class="entity">
+          <div class="entity-title">Coach</div>
+          <div>CoachID (PK)</div>
+          <div>LastName</div>
+          <div>FirstName</div>
+          <div>Age</div>
+          <div>Specialty</div>
+        </div>
+        <div class="relationship">
+          <div class="arrow"></div>
+          <div>*</div>
+        </div>
+
+        <div class="relationship">
+          <div class="line"></div>
+          <div class="arrow"></div>
+          <div>*</div>
+        </div>
+
+        <div class="entity">
+          <div class="entity-title">SessionCoach</div>
+          <div>SessionID (FK)</div>
+          <div>CoachID (FK)</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
